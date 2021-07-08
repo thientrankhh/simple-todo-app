@@ -1,23 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from "react";
+import AddToDo from './components/AddToDo';
+import Header from './components/Header';
+import ToDo from './components/ToDo';
 
 function App() {
+  const todos = useState(
+    {
+      id: 1,
+      title: "Setup development environment",
+      completed: false
+      },
+      {
+      id: 2,
+      title: "Develop website and add content",
+      completed: true
+      },
+      {
+      id: 3,
+      title: "Deploy to live server",
+      completed: true
+      }
+    );
+      console.log(todos);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+        <Header />
+        <AddToDo />
+        <ToDo todos={todos} />
     </div>
   );
 }
