@@ -5,8 +5,13 @@ function ToDo(props) {
     return (
         <div>
             <ul>
-                {props.todos.map(todo => (
-                    <ToDoItem key={todo.id} todo={todo} />
+                {props.todos.map((todo) => (
+                    <ToDoItem 
+                        key={todo.id}
+                        todo={todo} 
+                        handleChange={props.handleChange}
+                        deleleToDo={props.deleleToDo}
+                    />
                 ))}
             </ul>
         </div>
